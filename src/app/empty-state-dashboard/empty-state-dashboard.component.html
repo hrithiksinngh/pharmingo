@@ -1,0 +1,163 @@
+<div
+  *ngIf="isLoading"
+  class="flex flex-col items-center justify-center min-h-screen bg-white px-4 py-4"
+>
+  <div *ngIf="isLoading" class="text-5xl text-[#000000]/85 font-bold">
+    Loading...
+  </div>
+</div>
+
+<div
+  *ngIf="!isLoading"
+  class="font-roboto flex flex-col items-center justify-center min-h-screen bg-white"
+>
+  <div class="text-center h-full">
+    <h2 class="text-2xl font-semibold text-black/90 mb-2">
+      Create Your Custom Report in Just a Few Clicks
+    </h2>
+    <p class="text-sm text-black/45 mb-10">
+      Tailor your report to fit your specific needs. Follow these simple steps
+      to build your report:
+    </p>
+
+    <div class="flex flex-col gap-0 max-w-[970px] mx-auto place-items-center">
+      <div class="flex items-center justify-center gap-0">
+        <!-- Select Topic -->
+        <div
+          class="w-[300px] px-8 py-3 rounded-md text-center"
+        >
+          
+        <div class="text-[44px] font-semibold font-roboto bg-gradient-to-b from-[#E76F51] to-[#e76f5105] to-80% bg-clip-text text-transparent">
+            01
+        </div>
+        <div class="flex justify-center mb-8">
+            <img
+              src="../../assets/select_topic.svg"
+              alt="Login Icon"
+              class="h-[45px] w-[45px]"
+            />
+          </div>
+          <h3 class="text-black/90 font-semibold text-[16px]">Select Topic</h3>
+          <p class="text-black/45 text-sm">
+            Choose the section or data points most relevant to you
+          </p>
+        </div>
+
+        <img
+              src="../../assets/arrow_icon.svg"
+              alt="Arrow Icon"
+              class="h-[40px] w-[40px]"
+          />
+
+        <!-- Select Package -->
+        <div
+          class="w-[300px]  px-8 py-3 rounded-md text-center"
+        >
+           <div class="text-[44px] font-semibold font-roboto bg-gradient-to-b from-[#E76F51] to-[#e76f5105] to-80% bg-clip-text text-transparent">
+            02
+        </div>
+          <div class="flex justify-center mb-8">
+            <img
+              src="../../assets/select_package.svg"
+              alt="Login Icon"
+              class="h-[45px] w-[45px]"
+            />
+          </div>
+           <h3 class="text-black/90 font-semibold text-[16px]">Select Package</h3>
+          <p class="text-black/45 text-sm">
+            Choose from Basic or Enhanced Access
+          </p>
+        </div>
+
+        <img
+              src="../../assets/arrow_icon.svg"
+              alt="Arrow Icon"
+              class="h-[40px] w-[40px]"
+          />
+
+        <!-- Filter & Preview Data -->
+        <div
+          class="w-[300px]   px-8 py-3 rounded-md text-center"
+        >
+           <div class="text-[44px] font-semibold font-roboto bg-gradient-to-b from-[#E76F51] to-[#e76f5105] to-80% bg-clip-text text-transparent">
+            03
+        </div>
+          <div class="flex justify-center mb-8">
+            <img
+              src="../../assets/filter_icon.svg"
+              alt="Login Icon"
+              class="h-[45px] w-[45px]"
+            />
+          </div>
+           <h3 class="text-black/90 font-semibold text-[16px]">Filter & Preview Data</h3>
+          <p class="text-black/45 text-sm">
+            Focus on the metrics and trends that matter most
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-0">
+        <!-- Purchase Report -->
+        <div
+          class="w-[300px]  px-8 py-3 rounded-md text-center"
+        >
+           <div class="text-[44px] font-semibold font-roboto bg-gradient-to-b from-[#E76F51] to-[#e76f5105] to-80% bg-clip-text text-transparent">
+            04
+        </div>
+          <div class="flex justify-center mb-8">
+            <img
+              src="../../assets/purchase_report_icon.svg"
+              alt="Login Icon"
+              class="h-[45px] w-[45px]"
+            />
+          </div>
+           <h3 class="text-black/90 font-semibold text-[16px]">Purchase Report</h3>
+          <p class="text-black/45 text-sm">
+            Review your custom report and complete the payment
+          </p>
+        </div>
+
+        <img
+              src="../../assets/arrow_icon.svg"
+              alt="Arrow Icon"
+              class="h-[40px] w-[40px]"
+          />
+
+        <!-- Download & Explore -->
+        <div
+          class="w-[300px]  px-8 py-3 rounded-md text-center"
+        >
+           <div class="text-[44px] font-semibold font-roboto bg-gradient-to-b from-[#E76F51] to-[#e76f5105] to-80% bg-clip-text text-transparent">
+            05
+        </div>
+          <div class="flex justify-center mb-8">
+            <img
+              src="../../assets/download_black_icon.svg"
+              alt="Login Icon"
+              class="h-[45px] w-[45px]"
+            />
+          </div>
+           <h3 class="text-black/90 font-semibold text-[16px]">Download & Explore</h3>
+          <p class="text-black/45 text-sm">
+            Instantly access your personalized report
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 w-[250px] mx-auto">
+      <a
+        routerLink="/generate-report/step/1"
+        class="bg-[#2A9D8F] cursor-pointer text-white font-normal px-4 py-3 rounded-lg hover:bg-[#2A9D8F]/90 transition duration-300"
+      >
+        Start Building My Report
+      </a>
+    </div>
+    <!-- <button
+    (click)="uploadFile()"
+    class="mt-10 w-[250px] bg-[#2A9D8F] text-white font-normal py-3 rounded-lg hover:bg-[#2A9D8F]/90 transition duration-300"
+  >
+    Upload File to Storage
+  </button> -->
+  </div>
+</div>
