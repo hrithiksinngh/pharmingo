@@ -1,19 +1,25 @@
 <!-- Hero Section  -->
 <div
-  class="relative w-full flex flex-col items-center h-[700px] bg-[url('/assets/bg_hero_background.svg')] bg-cover overflow-hidden"
+  class="relative w-full flex flex-col items-center h-[700px] xs:h-[750px] bg-[url('/assets/bg_hero_background.svg')] bg-cover overflow-hidden"
 >
+  <!-- Header/Navigation -->
   <div
-    class="w-full fixed top-0 z-50 h-[60px] bg-[#144860] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.06)] px-[100px]"
+    class="w-full fixed top-0 z-[100] h-[60px] bg-[#144860] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.06)] px-[100px] xs:px-4"
   >
     <div class="flex items-center justify-between max-w-[1440px] mx-auto py-3">
-      <a routerLink="/" class="flex items-center cursor-pointer">
-        <img
-          src="../../assets/ph_logo_white.svg"
-          alt="Pharmingo Logo"
-          class="h-[35px]"
-        />
-      </a>
-      <div class="flex items-center space-x-8">
+      <!-- Desktop View -->
+      <div class="xs:hidden flex items-center">
+        <a routerLink="/" class="flex items-center cursor-pointer">
+          <img
+            src="../../assets/ph_logo_white.svg"
+            alt="Pharmingo Logo"
+            class="h-[35px]"
+          />
+        </a>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <div class="flex items-center space-x-8 xs:hidden">
         <div
           class="group relative text-white/80 text-[16px] cursor-pointer font-medium"
         >
@@ -92,16 +98,84 @@
 
         <a
           routerLink="/login"
-          class="cursor-pointer text-white text-[18px] h-[35px] w-[110px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
+          class="cursor-pointer text-white text-[16px] h-[32px] w-[90px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
         >
           Login
         </a>
+      </div>
+
+      <!-- Mobile View -->
+      <div class="hidden xs:flex items-center justify-between w-full">
+        <!-- Hamburger Menu -->
+        <button class="text-white p-2 z-[110]" (click)="toggleMobileMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <!-- Centered Logo -->
+        <a routerLink="/" class="flex items-center cursor-pointer">
+          <img
+            src="../../assets/ph_logo_white.svg"
+            alt="Pharmingo Logo"
+            class="h-[30px]"
+          />
+        </a>
+
+        <!-- Login Button -->
+        <a
+          routerLink="/login"
+          class="cursor-pointer text-white text-[14px] h-[32px] w-[80px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
+        >
+          Login
+        </a>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div 
+        *ngIf="isMobileMenuOpen" 
+        class="fixed inset-0 bg-black/50 z-[150] hidden xs:block"
+        (click)="toggleMobileMenu()"
+      >
+        <div 
+          class="fixed top-0 left-0 w-[280px] h-full bg-white transform transition-transform duration-300 ease-in-out"
+          [ngClass]="isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'"
+          (click)="$event.stopPropagation()"
+        >
+          <!-- Mobile Menu Content -->
+          <div class="flex flex-col h-full">
+            <!-- Close Button -->
+            <div class="flex justify-end p-4">
+              <button class="text-gray-600 p-2" (click)="toggleMobileMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="flex flex-col px-6">
+              <div class="text-[18px] font-medium mb-4 text-[#144860]">Datasets</div>
+              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Pricing</a>
+              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Market Access</a>
+              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Treatment Cost</a>
+              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Dosing Assumptions</a>
+              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Regulatory Approvals</a>
+
+              <div class="text-[18px] font-medium mt-8 mb-4 text-[#144860]">Packages</div>
+              <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Basic Access</a>
+              <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Enhanced Access</a>
+              <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Custom Report</a>
+              <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-gray-600 border-b border-gray-100">Consultation</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <div
-    class="w-[400px] flex items-center justify-center space-x-2 h-[40px] absolute bottom-[30px] left-[36%]"
+    class="w-[400px] xs:w-[200px] flex items-center justify-center space-x-2 h-[40px] absolute bottom-[30px] left-[36%] xs:left-[50%] xs:transform xs:-translate-x-1/2"
   >
     <div
       class="h-[4px] rounded-[2px] transition-transform duratio-300 ease-in"
@@ -129,8 +203,7 @@
     ></div>
   </div>
 
-  <div class="carousel max-w-[1440px] h-[650px]">
-    >
+  <div class="carousel max-w-[1440px] h-[650px] xs:h-[750px]">
     <!-- Slide 1 -->
     <div
       class="carousel-slide animate-slideInFromRight"
@@ -138,17 +211,17 @@
     >
       <div class="carousel-content">
         <div
-          class="flex items-center justify-between max-w-[1440px] mx-auto h-[600px] pt-[120px] px-[100px] 2xl:px-[50px] 3xl:px-[50px]"
+          class="flex xs:flex-col items-center justify-between max-w-[1440px] mx-auto h-[600px] pt-[120px] xs:pt-[100px] px-[100px] 2xl:px-[50px] 3xl:px-[50px] xs:px-4"
         >
-          <div class="flex flex-col space-y-[30px] w-[650px]">
-            <div class="flex items-center space-x-4">
-              <span class="text-[24px] font-normal text-white/60">
+          <div class="flex flex-col space-y-[30px] w-[650px] xs:w-full xs:space-y-5 xs:items-start xs:mb-4">
+            <div class="flex items-center space-x-4 xs:justify-center">
+              <span class="text-[24px] xs:text-[18px] font-normal text-white/60">
                 Need specific data?
               </span>
-              <span class="text-[24px] -mt-2"> 👉 </span>
+              <span class="text-[24px] xs:text-[18px] -mt-2"> 👉 </span>
             </div>
 
-            <div class="text-white font-bold text-[42px] leading-[58px]">
+            <div class="text-white font-bold text-[42px] xs:text-[28px] leading-[58px] xs:leading-[34px]">
               Only
               <span class="text-[#F4A261]"> pay for the data you need</span>
               Build and download your customized report
@@ -156,30 +229,30 @@
 
             <a
               routerLink="/signup"
-              class="cursor-pointer w-[500px] text-white text-[24px] h-[55px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
+              class="cursor-pointer w-[500px] xs:w-full text-white text-[24px] xs:text-[18px] h-[55px] xs:h-[45px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
             >
               Choose data and build your report
             </a>
           </div>
 
-          <div class="relative w-[400px] h-[350px]">
+          <div class="relative w-[400px] h-[350px] xs:w-[300px] xs:h-[250px] xs:mt-8 xs:ml-12">
             <div
-              class="absolute z-10 bg-[url('/assets/bg_hero_img_1.webp')] bg-cover bg-center -top-[40px] -left-[70px] w-[300px] h-[300px] rounded-full ring-[4px] ring-white"
+              class="absolute z-10 bg-[url('/assets/bg_hero_img_1.webp')] bg-cover bg-center -top-[40px] -left-[70px] w-[300px] h-[300px] xs:w-[200px] xs:h-[200px] xs:-top-[20px] xs:-left-[40px] rounded-full ring-[4px] ring-white"
             ></div>
             <div
-              class="absolute bottom-[0px] right-[20px] w-[300px] h-[300px] border-[2px] border-dashed border-[#ffffff] rounded-full"
+              class="absolute bottom-[0px] right-[20px] xs:right-[40px] w-[300px] h-[300px] xs:w-[200px] xs:h-[200px] border-[2px] border-dashed border-[#ffffff] rounded-full"
             >
               <div class="relative w-full h-full rounded-full">
                 <div
-                  class="bg-[url('/assets/bg_hero_img_2.webp')] bg-cover rounded-full absolute -bottom-[30px] left-[40px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_2.webp')] bg-cover rounded-full absolute -bottom-[30px] left-[40px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px] xs:-bottom-[20px] xs:left-[30px]"
                 ></div>
 
                 <div
-                  class="bg-[url('/assets/bg_hero_img_3.webp')] bg-cover rounded-full absolute bottom-[20px] -right-[20px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_3.webp')] bg-cover rounded-full absolute bottom-[20px] xs:bottom-[10px] -right-[20px] xs:-right-[10px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
 
                 <div
-                  class="bg-[url('/assets/bg_hero_img_4.webp')] bg-cover rounded-full absolute top-[10px] -right-[10px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_4.webp')] bg-cover rounded-full absolute top-[10px] xs:top-[0px] -right-[10px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
               </div>
             </div>
@@ -195,17 +268,17 @@
     >
       <div class="carousel-content">
         <div
-          class="flex items-center justify-between max-w-[1440px] mx-auto h-[600px] pt-[120px] px-[100px] 2xl:px-[50px] 3xl:px-[50px]"
+          class="flex xs:flex-col items-center justify-between max-w-[1440px] mx-auto h-[600px] pt-[120px] xs:pt-[100px] px-[100px] 2xl:px-[50px] 3xl:px-[50px] xs:px-4"
         >
-          <div class="flex flex-col space-y-[30px] w-[680px]">
-            <div class="flex items-center space-x-4">
-              <span class="text-[24px] font-normal text-white/60">
+          <div class="flex flex-col space-y-[30px] w-[680px] xs:w-full xs:space-y-5 xs:items-start xs:mb-4">
+            <div class="flex items-center space-x-4 xs:justify-center">
+              <span class="text-[24px] xs:text-[18px] font-normal text-white/60">
                 Transform your decision-making
               </span>
-              <span class="text-[24px] -mt-2"> 👉 </span>
+              <span class="text-[24px] xs:text-[18px] -mt-2"> 👉 </span>
             </div>
 
-            <div class="text-white font-bold text-[42px] leading-[58px]">
+            <div class="text-white font-bold text-[42px] xs:text-[28px] leading-[58px] xs:leading-[38px]">
               Create
               <span class="text-[#F4A261]"> customized report</span> to answer
               your pharmaceutical pricing and market access questions  
@@ -213,30 +286,30 @@
 
             <a
               routerLink="/signup"
-              class="cursor-pointer w-[500px] text-white text-[24px] h-[55px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
+              class="cursor-pointer w-[500px] xs:w-full text-white text-[24px] xs:text-[18px] h-[55px] xs:h-[45px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
             >
               Choose data and build your report
             </a>
           </div>
 
-          <div class="relative w-[400px] h-[350px]">
+          <div class="relative w-[400px] h-[350px] xs:w-[300px] xs:h-[250px] xs:mt-8 xs:ml-12">
             <div
-              class="absolute z-10 bg-[url('/assets/bg_hero_img_4.webp')] bg-cover bg-center -top-[40px] -left-[70px] w-[300px] h-[300px] rounded-full ring-[4px] ring-white"
+              class="absolute z-10 bg-[url('/assets/bg_hero_img_4.webp')] bg-cover bg-center -top-[40px] -left-[70px] w-[300px] h-[300px] xs:w-[200px] xs:h-[200px] xs:-top-[20px] xs:-left-[40px] rounded-full ring-[4px] ring-white"
             ></div>
             <div
-              class="absolute bottom-[0px] right-[20px] w-[300px] h-[300px] border-[2px] border-dashed border-[#ffffff] rounded-full"
+              class="absolute bottom-[0px] xs:-bottom-[40px] right-[20px] xs:right-[40px] w-[300px] h-[300px] xs:w-[200px] xs:h-[200px] border-[2px] border-dashed border-[#ffffff] rounded-full"
             >
               <div class="relative w-full h-full rounded-full">
                 <div
-                  class="bg-[url('/assets/bg_hero_img_1.webp')] bg-cover rounded-full absolute -bottom-[30px] left-[40px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_1.webp')] bg-cover rounded-full absolute -bottom-[30px] left-[40px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
 
                 <div
-                  class="bg-[url('/assets/bg_hero_img_2.webp')] bg-cover rounded-full absolute bottom-[20px] -right-[20px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_2.webp')] bg-cover rounded-full absolute bottom-[20px] xs:bottom-[10px] -right-[20px] xs:-right-[15px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
 
                 <div
-                  class="bg-[url('/assets/bg_hero_img_3.webp')] bg-cover rounded-full absolute top-[10px] -right-[10px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_3.webp')] bg-cover rounded-full absolute top-[10px] -right-[10px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
               </div>
             </div>
@@ -253,17 +326,17 @@
     >
       <div class="carousel-content">
         <div
-          class="flex items-center justify-between max-w-[1440px] mx-auto h-[600px] pt-[120px] px-[100px] 2xl:px-[50px] 3xl:px-[50px]"
+          class="flex xs:flex-col items-center justify-between max-w-[1440px] mx-auto h-[600px] pt-[120px] xs:pt-[100px] px-[100px] 2xl:px-[50px] 3xl:px-[50px] xs:px-4"
         >
-          <div class="flex flex-col space-y-[30px] w-[580px]">
-            <div class="flex items-center space-x-4">
-              <span class="text-[24px] font-normal text-white/60">
+          <div class="flex flex-col space-y-[30px] w-[580px] xs:w-full xs:space-y-5 xs:items-start xs:mb-4">
+            <div class="flex items-center space-x-4 xs:justify-center">
+              <span class="text-[24px] xs:text-[18px] font-normal text-white/60">
                 Elevate your pharmaceutical strategy
               </span>
-              <span class="text-[24px] -mt-2"> 👉 </span>
+              <span class="text-[24px] xs:text-[18px] -mt-2"> 👉 </span>
             </div>
 
-            <div class="text-white font-bold text-[42px] leading-[58px]">
+            <div class="text-white font-bold text-[42px] xs:text-[28px] leading-[58px] xs:leading-[38px]">
               Create
               <span class="text-[#F4A261]"> customized reports</span> for your
               pricing and market access needs 
@@ -271,30 +344,30 @@
 
             <a
               routerLink="/signup"
-              class="cursor-pointer w-[500px] text-white text-[24px] h-[55px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
+              class="cursor-pointer w-[500px] xs:w-full text-white text-[24px] xs:text-[18px] h-[55px] xs:h-[45px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
             >
               Choose data and build your report
             </a>
           </div>
 
-          <div class="relative w-[400px] h-[350px]">
+          <div class="relative w-[400px] h-[350px] xs:w-[300px] xs:h-[250px] xs:mt-8 xs:ml-12">
             <div
-              class="absolute z-10 bg-[url('/assets/bg_hero_img_3.webp')] bg-cover bg-center -top-[40px] -left-[70px] w-[300px] h-[300px] rounded-full ring-[4px] ring-white"
+              class="absolute z-10 bg-[url('/assets/bg_hero_img_3.webp')] bg-cover bg-center -top-[40px] -left-[70px] w-[300px] h-[300px] xs:w-[200px] xs:h-[200px] xs:-top-[20px] xs:-left-[40px] rounded-full ring-[4px] ring-white"
             ></div>
             <div
-              class="absolute bottom-[0px] right-[20px] w-[300px] h-[300px] border-[2px] border-dashed border-[#ffffff] rounded-full"
+              class="absolute bottom-[0px] right-[20px] xs:right-[40px] w-[300px] h-[300px] xs:w-[200px] xs:h-[200px] border-[2px] border-dashed border-[#ffffff] rounded-full"
             >
               <div class="relative w-full h-full rounded-full">
                 <div
-                  class="bg-[url('/assets/bg_hero_img_4.webp')] bg-cover rounded-full absolute -bottom-[30px] left-[40px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_4.webp')] bg-cover rounded-full absolute -bottom-[30px] left-[40px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
 
                 <div
-                  class="bg-[url('/assets/bg_hero_img_1.webp')] bg-cover rounded-full absolute bottom-[20px] -right-[20px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_1.webp')] bg-cover rounded-full absolute bottom-[20px] xs:bottom-[10px] -right-[20px] xs:-right-[15px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
 
                 <div
-                  class="bg-[url('/assets/bg_hero_img_2.webp')] bg-cover rounded-full absolute top-[10px] -right-[10px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_2.webp')] bg-cover rounded-full absolute top-[10px] -right-[10px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
               </div>
             </div>
@@ -310,17 +383,17 @@
     >
       <div class="carousel-content">
         <div
-          class="flex items-center justify-between max-w-[1440px] mx-auto h-[600px] pt-[120px] px-[100px] 2xl:px-[50px] 3xl:px-[50px]"
+          class="flex xs:flex-col items-center justify-between max-w-[1440px] mx-auto h-[600px] pt-[120px] xs:pt-[100px] px-[100px] 2xl:px-[50px] 3xl:px-[50px] xs:px-4"
         >
-          <div class="flex flex-col space-y-[30px] w-[670px]">
-            <div class="flex items-center space-x-4">
-              <span class="text-[24px] font-normal text-white/60">
+          <div class="flex flex-col space-y-[30px] w-[670px] xs:w-full xs:space-y-5 xs:items-start xs:mb-4">
+            <div class="flex items-center space-x-4 xs:justify-center">
+              <span class="text-[24px] xs:text-[18px] font-normal text-white/60">
                 Transform your decision-making
               </span>
-              <span class="text-[24px] -mt-2"> 👉 </span>
+              <span class="text-[24px] xs:text-[18px] -mt-2"> 👉 </span>
             </div>
 
-            <div class="text-white font-bold text-[42px] leading-[58px]">
+            <div class="text-white font-bold text-[42px] xs:text-[28px] leading-[58px] xs:leading-[38px]">
               Select
               <span class="text-[#F4A261]"
                 >the market access & pricing data</span
@@ -330,30 +403,30 @@
 
             <a
               routerLink="/signup"
-              class="cursor-pointer w-[500px] text-white text-[24px] h-[55px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
+              class="cursor-pointer w-[500px] xs:w-full text-white text-[24px] xs:text-[18px] h-[55px] xs:h-[45px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
             >
               Choose data and build your report
             </a>
           </div>
 
-          <div class="relative w-[400px] h-[350px]">
+          <div class="relative w-[400px] h-[350px] xs:w-[300px] xs:h-[250px] xs:mt-8 xs:ml-12">
             <div
-              class="absolute z-10 bg-[url('/assets/bg_hero_img_2.webp')] bg-cover bg-center -top-[40px] -left-[70px] w-[300px] h-[300px] rounded-full ring-[4px] ring-white"
+              class="absolute z-10 bg-[url('/assets/bg_hero_img_2.webp')] bg-cover bg-center -top-[40px] -left-[70px] w-[300px] h-[300px] xs:w-[200px] xs:h-[200px] xs:-top-[20px] xs:-left-[40px] rounded-full ring-[4px] ring-white"
             ></div>
             <div
-              class="absolute bottom-[0px] right-[20px] w-[300px] h-[300px] border-[2px] border-dashed border-[#ffffff] rounded-full"
+              class="absolute bottom-[0px] xs:-bottom-[20px] right-[20px] xs:right-[40px] w-[300px] h-[300px] xs:w-[200px] xs:h-[200px] border-[2px] border-dashed border-[#ffffff] rounded-full"
             >
               <div class="relative w-full h-full rounded-full">
                 <div
-                  class="bg-[url('/assets/bg_hero_img_3.webp')] bg-cover rounded-full absolute -bottom-[30px] left-[40px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_3.webp')] bg-cover rounded-full absolute -bottom-[30px] left-[40px] xs:left-[65px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
 
                 <div
-                  class="bg-[url('/assets/bg_hero_img_4.webp')] bg-cover rounded-full absolute bottom-[20px] -right-[20px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_4.webp')] bg-cover rounded-full absolute bottom-[20px] -right-[20px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
 
                 <div
-                  class="bg-[url('/assets/bg_hero_img_1.webp')] bg-cover rounded-full absolute top-[10px] -right-[10px] h-[100px] w-[100px]"
+                  class="bg-[url('/assets/bg_hero_img_1.webp')] bg-cover rounded-full absolute top-[10px] -right-[10px] h-[100px] w-[100px] xs:h-[70px] xs:w-[70px]"
                 ></div>
               </div>
             </div>

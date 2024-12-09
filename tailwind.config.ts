@@ -5,9 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-
-      screens:{
-        'xs': '450px',
+      screens: {
+        'xs': {'max': '639px'},
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
         '2xl': '1536px',
         '3xl': '1736px',
         '4xl': '1936px',
@@ -24,14 +27,12 @@ module.exports = {
       },
       fontFamily: {
         'roboto': ["Roboto", "sans-serif"],
-       
       },
       keyframes: {
         slideLeft: {
           '0%': { transform: 'translateX(100%)', opacity: '0.5' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
-        
         slideDown: {
           '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
@@ -47,7 +48,6 @@ module.exports = {
       },
       animation: {
         slideLeft: 'slideLeft 0.7s ease-out',
-       
         slideDown: 'slideDown 0.4s ease-in-out',
         slideUp: 'slideUp 0.5s ease-out',
         fadeOut: 'fadeOut 0.5s ease-in',

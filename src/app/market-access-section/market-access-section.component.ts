@@ -122,8 +122,12 @@ export class MarketAccessSectionComponent {
 
   openedCardIndex = -1; // First card is open by default
 
-  toggleCard(index: number): void {
-    this.openedCardIndex = index;
+  isMobileView: boolean = window.innerWidth <= 768;
+
+  toggleCard(index: number) {
+    if (this.isMobileView) {
+      this.openedCardIndex = this.openedCardIndex === index ? -1 : index;
+    }
   }
 
   hoveredCardIndex: number | null = null;
