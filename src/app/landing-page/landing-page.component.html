@@ -10,14 +10,14 @@
       <app-features-section></app-features-section>
     </div>
     <div
-      class="bg-orange-gradient-2 h-[1700px] absolute top-[1100px] xs:top-[930px] left-0 w-full"
+      class="bg-orange-gradient-2 h-[1700px] absolute top-[1100px] xs:top-[930px] tablet:top-[1218px] left-0 w-full"
     >
       <app-market-access-section></app-market-access-section>
     </div>
-    <div class="bg-white h-[1200px] xs:h-[530px] absolute top-[2800px] xs:top-[2630px] left-0 w-full">
+    <div class="bg-white h-[1200px] xs:h-[530px] absolute top-[2800px] tablet:top-[2880px] xs:top-[2630px] left-0 w-full">
       <app-explore-packages-section></app-explore-packages-section>
     </div>
-    <div class="bg-[#264653] h-[2100px] xs:h-[1720px] absolute top-[4000px] xs:top-[3555px] left-0 w-full">
+    <div class="bg-[#264653] h-[2100px] xs:h-[1720px] absolute top-[4000px] tablet:top-[4090px] xs:top-[3555px] left-0 w-full">
       <app-offering-details-section></app-offering-details-section>
     </div>
     <div
@@ -26,7 +26,7 @@
       <app-report-generation></app-report-generation>
     </div>
 
-    <div class="flex flex-1 flex-col">
+    <div class="flex flex-1 flex-col tablet:hidden">
       <section class="w-full h-[1100px] xs:h-[930px] bg-[#F2F9F8] font-roboto">
         Feature Section
       </section>
@@ -45,7 +45,7 @@
     </div>
 
     <!-- sticky card -->
-    <div class="w-[500px] 3xl:w-[600px] ml-[40px] hidden md:flex h-screen sticky top-0 xs:w-full xs:mx-auto xs:px-4 xs:ml-0 xs:static">
+    <div class="w-[500px] 3xl:w-[600px] ml-[40px] hidden lg:flex h-screen sticky top-0 xs:hidden sm:hidden">
       <div
         class="floating-banner flex flex-col w-[500px] 3xl:w-[600px] bg-white rounded-[10px] shadow-lg overflow-hidden font-roboto h-[calc(100vh-40px)] my-5
                xs:w-full xs:h-auto xs:my-4 xs:mx-auto"

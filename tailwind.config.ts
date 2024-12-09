@@ -6,14 +6,15 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'xs': {'max': '639px'},
-        'sm': '640px',
+        'xs': {'max': '520px'},
+        'sm': {'min': '540px', 'max': '1024px'}, // tablet view
         'md': '768px',
-        'lg': '1024px',
+        'lg': '1048px',
         'xl': '1280px',
         '2xl': '1536px',
         '3xl': '1736px',
         '4xl': '1936px',
+        'tablet': {'min': '540px', 'max': '1024px'},
       },
       backgroundImage: {
         'blue-gradient': 'linear-gradient(177.41deg, #156082 28.57%, #264653 97.72%)',
@@ -27,6 +28,17 @@ module.exports = {
       },
       fontFamily: {
         'roboto': ["Roboto", "sans-serif"],
+      },
+      fontSize: {
+        'carousel-title': ['36px', '48px'], // Default size
+        'carousel-title-xs': ['24px', '32px'], // Smaller size for xs screens
+        'carousel-subtitle': ['20px', '28px'], // Default size
+        'carousel-subtitle-xs': ['16px', '24px'], // Smaller size for xs screens
+        'carousel-title-tablet': ['30px', '40px'], // Smaller size for tablet screens
+        'carousel-subtitle-tablet': ['18px', '26px'], // Smaller size for tablet screens
+        'section-title-tablet': ['32px', '42px'], // New size for tablet screens
+        'section-subtitle-tablet': ['16px', '22px'], // New size for tablet screens
+        'section-text-tablet': ['15px', '20px'], // New size for tablet screens
       },
       keyframes: {
         slideLeft: {
