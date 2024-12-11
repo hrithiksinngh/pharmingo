@@ -21,12 +21,12 @@
       <app-offering-details-section></app-offering-details-section>
     </div>
     <div
-      class="bg-orange-gradient h-[500px] xs:h-[400px] absolute top-[6100px] xs:top-[5275px] left-0 w-full"
+      class="bg-orange-gradient h-[500px] xs:h-[400px] absolute top-[6100px] xs:top-[5730px] left-0 w-full"
     >
       <app-report-generation></app-report-generation>
     </div>
 
-    <div class="flex flex-1 flex-col tablet:hidden">
+    <div class="flex flex-1 flex-col tablet:hidden xs:hidden">
       <section class="w-full h-[1100px] xs:h-[930px] bg-[#F2F9F8] font-roboto">
         Feature Section
       </section>
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Floating button for mobile and tablet view -->
-    <div class="fixed bottom-4 right-4">
+    <div class="fixed bottom-4 right-4" style="z-index: 100;">
       <button (click)="toggleFloatingWindow()">
         <img src="../../assets/signup-float.png" alt="Sign up for free" class="w-[80px] h-[80px] tablet:w-[130px] tablet:h-[130px] lg:hidden">
       </button>
