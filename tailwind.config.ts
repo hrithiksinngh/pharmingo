@@ -39,6 +39,11 @@ module.exports = {
         'section-title-tablet': ['32px', '42px'], // New size for tablet screens
         'section-subtitle-tablet': ['16px', '22px'], // New size for tablet screens
         'section-text-tablet': ['15px', '20px'], // New size for tablet screens
+        'floating-title-tablet': ['26px', '34px'], // New size for tablet screens
+        'floating-text-tablet': ['18px', '26px'], // New size for tablet screens
+      },
+      height: {
+        'floating-step-tablet': '80px', // New height for tablet screens
       },
       keyframes: {
         slideLeft: {

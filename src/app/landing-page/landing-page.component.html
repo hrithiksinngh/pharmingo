@@ -44,8 +44,308 @@
       </section>
     </div>
 
+    <!-- Floating button for mobile and tablet view -->
+    <div class="fixed bottom-4 right-4">
+      <button (click)="toggleFloatingWindow()">
+        <img src="../../assets/signup-float.png" alt="Sign up for free" class="w-[80px] h-[80px] tablet:w-[130px] tablet:h-[130px] lg:hidden">
+      </button>
+    </div>
+
+    <!-- Floating window for mobile and tablet view -->
+    <div
+      *ngIf="isFloatingWindowVisible"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="bg-white rounded-lg shadow-lg w-4/5 tablet:w-[500px] overflow-auto p-4 relative">
+        <button
+          class="absolute top-2 right-4 text-black text-[32px] tablet:text-[42px]"
+          (click)="toggleFloatingWindow()"
+        >
+          &times;
+        </button>
+        <h2 class="text-[#000000] font-bold text-[24px] 3xl:text-[28px] leading-[32px] xs:text-[20px] xs:leading-[28px] tablet:text-floating-title-tablet tablet:leading-[34px] px-4">
+          <span class="text-[#F4A261]">Sign up for free</span> & create your custom report
+        </h2>
+        <!-- Include the sticky card content here -->
+        <div class="flex flex-col w-full">
+          <!-- ...existing sticky card content... -->
+          <div class="flex flex-col w-full pb-[15px]">
+            <div class="flex flex-col h-full w-[420px] 3xl:w-[520px] mx-auto xs:w-full px-4 tablet:w-full">
+              <div class="mt-[25px] flex flex-col relative">
+                <div class="space-y-4 xs:space-y-6">
+                  <div
+                    class="relative flex items-start transition-opacity duration-500 h-[45px]
+                           xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
+                    [ngClass]="{
+                      'opacity-100': completedSteps[0],
+                      'opacity-50': !completedSteps[0]
+                    }"
+                  >
+                    <div class="flex-shrink-0">
+                      <img
+                        *ngIf="completedSteps[0]"
+                        src="../../assets/green_check_icon.svg"
+                        alt="Check Icon"
+                        class="w-7 h-7 z-20 mt-1"
+                      />
+                      <div
+                        *ngIf="!completedSteps[0]"
+                        class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      >
+                        <span class="text-[15px] font-normal text-black/50">1</span>
+                      </div>
+                    </div>
+
+                    <div class="ml-4 flex-1">
+                      <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
+                                 xs:text-[16px] tablet:text-floating-text-tablet">
+                        Free account
+                      </h3>
+                      <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
+                                xs:text-[14px] tablet:text-floating-text-tablet">
+                        No charge to get started
+                      </p>
+                    </div>
+
+                    <div
+                      class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                             xs:h-full tablet:h-floating-step-tablet"
+                      [ngClass]="{
+                        'bg-[#16A085]': completedSteps[0],
+                        'bg-[#E1E1E1]': !completedSteps[0]
+                      }"
+                    ></div>
+                  </div>
+
+                  <div
+                    class="relative flex items-start transition-opacity duration-500 h-[45px]
+                           xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
+                    [ngClass]="{
+                      'opacity-100': completedSteps[1],
+                      'opacity-50': !completedSteps[1]
+                    }"
+                  >
+                    <div class="flex-shrink-0">
+                      <img
+                        *ngIf="completedSteps[1]"
+                        src="../../assets/green_check_icon.svg"
+                        alt="Check Icon"
+                        class="w-7 h-7 z-20 mt-1"
+                      />
+                      <div
+                        *ngIf="!completedSteps[1]"
+                        class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      >
+                        <span class="text-[15px] font-normal text-black/50">2</span>
+                      </div>
+                    </div>
+
+                    <div class="ml-4 flex-1">
+                      <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
+                                 xs:text-[16px] tablet:text-floating-text-tablet">
+                        Access data
+                      </h3>
+                      <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
+                                xs:text-[14px] tablet:text-floating-text-tablet">
+                        Browse through extensive pharma pricing and market access
+                        data
+                      </p>
+                    </div>
+
+                    <div
+                      class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                             xs:h-full tablet:h-floating-step-tablet"
+                      [ngClass]="{
+                        'bg-[#16A085]': completedSteps[1],
+                        'bg-[#E1E1E1]': !completedSteps[1]
+                      }"
+                    ></div>
+                  </div>
+
+                  <div
+                    class="relative flex items-start transition-opacity duration-500 h-[45px]
+                           xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
+                    [ngClass]="{
+                      'opacity-100': completedSteps[2],
+                      'opacity-50': !completedSteps[2]
+                    }"
+                  >
+                    <div class="flex-shrink-0">
+                      <img
+                        *ngIf="completedSteps[2]"
+                        src="../../assets/green_check_icon.svg"
+                        alt="Check Icon"
+                        class="w-7 h-7 z-20 mt-1"
+                      />
+                      <div
+                        *ngIf="!completedSteps[2]"
+                        class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      >
+                        <span class="text-[15px] font-normal text-black/50">3</span>
+                      </div>
+                    </div>
+
+                    <div class="ml-4 flex-1">
+                      <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
+                                 xs:text-[16px] tablet:text-floating-text-tablet">
+                        Customizable reports
+                      </h3>
+                      <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
+                                xs:text-[14px] tablet:text-floating-text-tablet">
+                        Select the topics and data you need
+                      </p>
+                    </div>
+
+                    <div
+                      class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                             xs:h-full tablet:h-floating-step-tablet"
+                      [ngClass]="{
+                        'bg-[#16A085]': completedSteps[2],
+                        'bg-[#E1E1E1]': !completedSteps[2]
+                      }"
+                    ></div>
+                  </div>
+
+                  <div
+                    class="relative flex items-start transition-opacity duration-500 h-[45px]
+                           xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
+                    [ngClass]="{
+                      'opacity-100': completedSteps[3],
+                      'opacity-50': !completedSteps[3]
+                    }"
+                  >
+                    <div class="flex-shrink-0">
+                      <img
+                        *ngIf="completedSteps[3]"
+                        src="../../assets/green_check_icon.svg"
+                        alt="Check Icon"
+                        class="w-7 h-7 z-20 mt-1"
+                      />
+                      <div
+                        *ngIf="!completedSteps[3]"
+                        class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      >
+                        <span class="text-[15px] font-normal text-black/50">4</span>
+                      </div>
+                    </div>
+
+                    <div class="ml-4 flex-1">
+                      <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
+                                 xs:text-[16px] tablet:text-floating-text-tablet">
+                        Personalized insights
+                      </h3>
+                      <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
+                                xs:text-[14px] tablet:text-floating-text-tablet">
+                        Tailor your report to fit your needs
+                      </p>
+                    </div>
+
+                    <div
+                      class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                             xs:h-full tablet:h-floating-step-tablet"
+                      [ngClass]="{
+                        'bg-[#16A085]': completedSteps[3],
+                        'bg-[#E1E1E1]': !completedSteps[3]
+                      }"
+                    ></div>
+                  </div>
+
+                  <div
+                    class="relative flex items-start transition-opacity duration-500 h-[45px]
+                           xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
+                    [ngClass]="{
+                      'opacity-100': completedSteps[4],
+                      'opacity-50': !completedSteps[4]
+                    }"
+                  >
+                    <div class="flex-shrink-0">
+                      <img
+                        *ngIf="completedSteps[4]"
+                        src="../../assets/green_check_icon.svg"
+                        alt="Check Icon"
+                        class="w-7 h-7 z-20 mt-1"
+                      />
+                      <div
+                        *ngIf="!completedSteps[4]"
+                        class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      >
+                        <span class="text-[15px] font-normal text-black/50">5</span>
+                      </div>
+                    </div>
+
+                    <div class="ml-4 flex-1">
+                      <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
+                                 xs:text-[16px] tablet:text-floating-text-tablet">
+                        Easy Purchasing
+                      </h3>
+                      <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
+                                xs:text-[14px] tablet:text-floating-text-tablet">
+                        Securely & seamlessly purchase reports
+                      </p>
+                    </div>
+
+                    <div
+                      class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                             xs:h-full tablet:h-floating-step-tablet"
+                      [ngClass]="{
+                        'bg-[#16A085]': completedSteps[4],
+                        'bg-[#E1E1E1]': !completedSteps[4]
+                      }"
+                    ></div>
+                  </div>
+
+                  <div
+                    class="relative flex items-start transition-opacity duration-500 h-[45px]
+                           xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
+                    [ngClass]="{
+                      'opacity-100': completedSteps[5],
+                      'opacity-50': !completedSteps[5]
+                    }"
+                  >
+                    <div class="flex-shrink-0">
+                      <img
+                        *ngIf="completedSteps[5]"
+                        src="../../assets/green_check_icon.svg"
+                        alt="Check Icon"
+                        class="w-7 h-7 z-20 mt-1"
+                      />
+                      <div
+                        *ngIf="!completedSteps[5]"
+                        class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      >
+                        <span class="text-[15px] font-normal text-black/50">6</span>
+                      </div>
+                    </div>
+
+                    <div class="ml-4 flex-1">
+                      <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
+                                 xs:text-[16px] tablet:text-floating-text-tablet">
+                        Instant availability
+                      </h3>
+                      <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
+                                xs:text-[14px] tablet:text-floating-text-tablet">
+                        Download your report
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                routerLink="/signup"
+                class="cursor-pointer text-white mt-[12px] text-[20px] 3xl:text-[22px] h-[45px] 3xl:h-[50px] w-[240px] flex items-center justify-center font-medium font-roboto rounded-[8px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]
+                      xs:w-full xs:text-[18px] xs:h-[40px] xs:mt-6"
+              >
+                Sign Up
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- sticky card -->
-    <div class="w-[500px] 3xl:w-[600px] ml-[40px] hidden lg:flex h-screen sticky top-0 xs:hidden sm:hidden">
+    <div class="w-[500px] 3xl:w-[600px] ml-[40px] hidden lg:flex h-screen sticky top-0 xs:hidden sm:hidden tablet:w-[90%]">
       <div
         class="floating-banner flex flex-col w-[500px] 3xl:w-[600px] bg-white rounded-[10px] shadow-lg overflow-hidden font-roboto h-[calc(100vh-40px)] my-5
                xs:w-full xs:h-auto xs:my-4 xs:mx-auto"
@@ -75,7 +375,7 @@
               <div class="space-y-4 xs:space-y-6">
                 <div
                   class="relative flex items-start transition-opacity duration-500 h-[45px]
-                         xs:h-auto xs:mb-4"
+                         xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[0],
                     'opacity-50': !completedSteps[0]
@@ -98,18 +398,18 @@
 
                   <div class="ml-4 flex-1">
                     <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px]">
+                               xs:text-[16px] tablet:text-floating-text-tablet">
                       Free account
                     </h3>
                     <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px]">
+                              xs:text-[14px] tablet:text-floating-text-tablet">
                       No charge to get started
                     </p>
                   </div>
 
                   <div
                     class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
-                           xs:h-full"
+                           xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[0],
                       'bg-[#E1E1E1]': !completedSteps[0]
@@ -119,7 +419,7 @@
 
                 <div
                   class="relative flex items-start transition-opacity duration-500 h-[45px]
-                         xs:h-auto xs:mb-4"
+                         xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[1],
                     'opacity-50': !completedSteps[1]
@@ -142,11 +442,11 @@
 
                   <div class="ml-4 flex-1">
                     <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px]">
+                               xs:text-[16px] tablet:text-floating-text-tablet">
                       Access data
                     </h3>
                     <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px]">
+                              xs:text-[14px] tablet:text-floating-text-tablet">
                       Browse through extensive pharma pricing and market access
                       data
                     </p>
@@ -154,7 +454,7 @@
 
                   <div
                     class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
-                           xs:h-full"
+                           xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[1],
                       'bg-[#E1E1E1]': !completedSteps[1]
@@ -164,7 +464,7 @@
 
                 <div
                   class="relative flex items-start transition-opacity duration-500 h-[45px]
-                         xs:h-auto xs:mb-4"
+                         xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[2],
                     'opacity-50': !completedSteps[2]
@@ -187,18 +487,18 @@
 
                   <div class="ml-4 flex-1">
                     <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px]">
+                               xs:text-[16px] tablet:text-floating-text-tablet">
                       Customizable reports
                     </h3>
                     <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px]">
+                              xs:text-[14px] tablet:text-floating-text-tablet">
                       Select the topics and data you need
                     </p>
                   </div>
 
                   <div
                     class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
-                           xs:h-full"
+                           xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[2],
                       'bg-[#E1E1E1]': !completedSteps[2]
@@ -208,7 +508,7 @@
 
                 <div
                   class="relative flex items-start transition-opacity duration-500 h-[45px]
-                         xs:h-auto xs:mb-4"
+                         xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[3],
                     'opacity-50': !completedSteps[3]
@@ -231,18 +531,18 @@
 
                   <div class="ml-4 flex-1">
                     <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px]">
+                               xs:text-[16px] tablet:text-floating-text-tablet">
                       Personalized insights
                     </h3>
                     <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px]">
+                              xs:text-[14px] tablet:text-floating-text-tablet">
                       Tailor your report to fit your needs
                     </p>
                   </div>
 
                   <div
                     class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
-                           xs:h-full"
+                           xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[3],
                       'bg-[#E1E1E1]': !completedSteps[3]
@@ -252,7 +552,7 @@
 
                 <div
                   class="relative flex items-start transition-opacity duration-500 h-[45px]
-                         xs:h-auto xs:mb-4"
+                         xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[4],
                     'opacity-50': !completedSteps[4]
@@ -275,18 +575,18 @@
 
                   <div class="ml-4 flex-1">
                     <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px]">
+                               xs:text-[16px] tablet:text-floating-text-tablet">
                       Easy Purchasing
                     </h3>
                     <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px]">
+                              xs:text-[14px] tablet:text-floating-text-tablet">
                       Securely & seamlessly purchase reports
                     </p>
                   </div>
 
                   <div
                     class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
-                           xs:h-full"
+                           xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[4],
                       'bg-[#E1E1E1]': !completedSteps[4]
@@ -296,7 +596,7 @@
 
                 <div
                   class="relative flex items-start transition-opacity duration-500 h-[45px]
-                         xs:h-auto xs:mb-4"
+                         xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[5],
                     'opacity-50': !completedSteps[5]
@@ -319,11 +619,11 @@
 
                   <div class="ml-4 flex-1">
                     <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px]">
+                               xs:text-[16px] tablet:text-floating-text-tablet">
                       Instant availability
                     </h3>
                     <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px]">
+                              xs:text-[14px] tablet:text-floating-text-tablet">
                       Download your report
                     </p>
                   </div>

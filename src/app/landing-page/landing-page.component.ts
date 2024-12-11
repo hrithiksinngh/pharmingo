@@ -1141,7 +1141,12 @@ currentStep = 0;
     }
   }
 
+  isFloatingWindowVisible = false;
+
+  toggleFloatingWindow(): void {
+    this.isFloatingWindowVisible = !this.isFloatingWindowVisible;
+  }
 
 }
 
-  
+
