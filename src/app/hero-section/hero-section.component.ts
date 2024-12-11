@@ -22,7 +22,7 @@ export class HeroSectionComponent {
   isMobileMenuOpen = false;
 
   ngOnInit(): void {
-    // this.startAutoplay();
+    this.startAutoplay();
   }
 
   startAutoplay(): void {
