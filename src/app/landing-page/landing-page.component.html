@@ -345,23 +345,24 @@
     </div>
 
     <!-- sticky card -->
-    <div class="w-[500px] 3xl:w-[600px] ml-[40px] hidden lg:flex h-screen sticky top-0 xs:hidden sm:hidden tablet:w-[90%]">
+    <div class="w-[500px] 3xl:w-[600px] ml-[40px] hidden lg:flex h-[100vh] sticky top-0 xs:hidden sm:hidden tablet:w-[90%]">
       <div
-        class="floating-banner flex flex-col w-[500px] 3xl:w-[600px] bg-white rounded-[10px] shadow-lg overflow-hidden font-roboto h-[calc(100vh-40px)] my-5
+      class="floating-banner flex flex-col w-[500px] 3xl:w-[600px] bg-white rounded-[10px] shadow-lg overflow-hidden font-roboto h-[calc(100%-100px)] my-5
                xs:w-full xs:h-auto xs:my-4 xs:mx-auto"
         [ngClass]="
           isScrolled
             ? 'top-[65px] pt-[0px] 3xl:top-[80px]'
             : 'top-[100px] py-[0px]'
         "
+        style="z-index: 60;"
       >
         <div class="flex items-center justify-center w-full bg-[#F4A261]/5">
           <div
             class="flex flex-col items-center py-[20px] max-w-[420px] 3xl:max-w-[520px] mx-auto
                    xs:max-w-full xs:px-4"
           >
-            <div class="text-[#000000] font-bold text-[24px] 3xl:text-[28px] leading-[32px]
-                        xs:text-[20px] xs:text-center xs:leading-[28px]">
+            <div class="text-[#000000] font-bold text-[3vh] 3xl:text-[4vh] leading-[4vh]
+                        xs:text-[2.5vh] xs:text-center xs:leading-[3.5vh]">
               <span class="text-[#F4A261]">Sign up for free</span> & create
               your custom report
             </div>
@@ -374,7 +375,7 @@
             <div class="mt-[25px] flex flex-col relative">
               <div class="space-y-4 xs:space-y-6">
                 <div
-                  class="relative flex items-start transition-opacity duration-500 h-[45px]
+                  class="relative flex items-start transition-opacity duration-500 h-[8vh]
                          xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[0],
@@ -386,29 +387,29 @@
                       *ngIf="completedSteps[0]"
                       src="../../assets/green_check_icon.svg"
                       alt="Check Icon"
-                      class="w-7 h-7 z-20 mt-1"
+                      class="w-[3vh] h-[3vh] z-20 mt-1"
                     />
                     <div
                       *ngIf="!completedSteps[0]"
-                      class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      class="w-[3vh] h-[3vh] z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
                     >
-                      <span class="text-[15px] font-normal text-black/50">1</span>
+                      <span class="text-[2vh] font-normal text-black/50">1</span>
                     </div>
                   </div>
 
                   <div class="ml-4 flex-1">
-                    <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px] tablet:text-floating-text-tablet">
+                    <h3 class="text-[2.5vh] 3xl:text-[3vh] font-medium text-black/80
+                               xs:text-[2vh] tablet:text-floating-text-tablet">
                       Free account
                     </h3>
-                    <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px] tablet:text-floating-text-tablet">
+                    <p class="text-[2vh] 3xl:text-[2.5vh] font-normal text-black/50
+                              xs:text-[1.8vh] tablet:text-floating-text-tablet">
                       No charge to get started
                     </p>
                   </div>
 
                   <div
-                    class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                    class="absolute z-10 left-[12px] top-[24px] h-[8vh] w-[5px]
                            xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[0],
@@ -418,7 +419,7 @@
                 </div>
 
                 <div
-                  class="relative flex items-start transition-opacity duration-500 h-[45px]
+                  class="relative flex items-start transition-opacity duration-500 h-[8vh]
                          xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[1],
@@ -430,30 +431,30 @@
                       *ngIf="completedSteps[1]"
                       src="../../assets/green_check_icon.svg"
                       alt="Check Icon"
-                      class="w-7 h-7 z-20 mt-1"
+                      class="w-[3vh] h-[3vh] z-20 mt-1"
                     />
                     <div
                       *ngIf="!completedSteps[1]"
-                      class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      class="w-[3vh] h-[3vh] z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
                     >
-                      <span class="text-[15px] font-normal text-black/50">2</span>
+                      <span class="text-[2vh] font-normal text-black/50">2</span>
                     </div>
                   </div>
 
                   <div class="ml-4 flex-1">
-                    <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px] tablet:text-floating-text-tablet">
+                    <h3 class="text-[2.5vh] 3xl:text-[3vh] font-medium text-black/80
+                               xs:text-[2vh] tablet:text-floating-text-tablet">
                       Access data
                     </h3>
-                    <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px] tablet:text-floating-text-tablet">
+                    <p class="text-[2vh] 3xl:text-[2.5vh] font-normal text-black/50
+                              xs:text-[1.8vh] tablet:text-floating-text-tablet">
                       Browse through extensive pharma pricing and market access
                       data
                     </p>
                   </div>
 
                   <div
-                    class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                    class="absolute z-10 left-[12px] top-[24px] h-[8vh] w-[5px]
                            xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[1],
@@ -463,7 +464,7 @@
                 </div>
 
                 <div
-                  class="relative flex items-start transition-opacity duration-500 h-[45px]
+                  class="relative flex items-start transition-opacity duration-500 h-[8vh]
                          xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[2],
@@ -475,29 +476,29 @@
                       *ngIf="completedSteps[2]"
                       src="../../assets/green_check_icon.svg"
                       alt="Check Icon"
-                      class="w-7 h-7 z-20 mt-1"
+                      class="w-[3vh] h-[3vh] z-20 mt-1"
                     />
                     <div
                       *ngIf="!completedSteps[2]"
-                      class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      class="w-[3vh] h-[3vh] z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
                     >
-                      <span class="text-[15px] font-normal text-black/50">3</span>
+                      <span class="text-[2vh] font-normal text-black/50">3</span>
                     </div>
                   </div>
 
                   <div class="ml-4 flex-1">
-                    <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px] tablet:text-floating-text-tablet">
+                    <h3 class="text-[2.5vh] 3xl:text-[3vh] font-medium text-black/80
+                               xs:text-[2vh] tablet:text-floating-text-tablet">
                       Customizable reports
                     </h3>
-                    <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px] tablet:text-floating-text-tablet">
+                    <p class="text-[2vh] 3xl:text-[2.5vh] font-normal text-black/50
+                              xs:text-[1.8vh] tablet:text-floating-text-tablet">
                       Select the topics and data you need
                     </p>
                   </div>
 
                   <div
-                    class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                    class="absolute z-10 left-[12px] top-[24px] h-[8vh] w-[5px]
                            xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[2],
@@ -507,7 +508,7 @@
                 </div>
 
                 <div
-                  class="relative flex items-start transition-opacity duration-500 h-[45px]
+                  class="relative flex items-start transition-opacity duration-500 h-[8vh]
                          xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[3],
@@ -519,29 +520,29 @@
                       *ngIf="completedSteps[3]"
                       src="../../assets/green_check_icon.svg"
                       alt="Check Icon"
-                      class="w-7 h-7 z-20 mt-1"
+                      class="w-[3vh] h-[3vh] z-20 mt-1"
                     />
                     <div
                       *ngIf="!completedSteps[3]"
-                      class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      class="w-[3vh] h-[3vh] z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
                     >
-                      <span class="text-[15px] font-normal text-black/50">4</span>
+                      <span class="text-[2vh] font-normal text-black/50">4</span>
                     </div>
                   </div>
 
                   <div class="ml-4 flex-1">
-                    <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px] tablet:text-floating-text-tablet">
+                    <h3 class="text-[2.5vh] 3xl:text-[3vh] font-medium text-black/80
+                               xs:text-[2vh] tablet:text-floating-text-tablet">
                       Personalized insights
                     </h3>
-                    <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px] tablet:text-floating-text-tablet">
+                    <p class="text-[2vh] 3xl:text-[2.5vh] font-normal text-black/50
+                              xs:text-[1.8vh] tablet:text-floating-text-tablet">
                       Tailor your report to fit your needs
                     </p>
                   </div>
 
                   <div
-                    class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                    class="absolute z-10 left-[12px] top-[24px] h-[8vh] w-[5px]
                            xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[3],
@@ -551,7 +552,7 @@
                 </div>
 
                 <div
-                  class="relative flex items-start transition-opacity duration-500 h-[45px]
+                  class="relative flex items-start transition-opacity duration-500 h-[8vh]
                          xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[4],
@@ -563,29 +564,29 @@
                       *ngIf="completedSteps[4]"
                       src="../../assets/green_check_icon.svg"
                       alt="Check Icon"
-                      class="w-7 h-7 z-20 mt-1"
+                      class="w-[3vh] h-[3vh] z-20 mt-1"
                     />
                     <div
                       *ngIf="!completedSteps[4]"
-                      class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      class="w-[3vh] h-[3vh] z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
                     >
-                      <span class="text-[15px] font-normal text-black/50">5</span>
+                      <span class="text-[2vh] font-normal text-black/50">5</span>
                     </div>
                   </div>
 
                   <div class="ml-4 flex-1">
-                    <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px] tablet:text-floating-text-tablet">
+                    <h3 class="text-[2.5vh] 3xl:text-[3vh] font-medium text-black/80
+                               xs:text-[2vh] tablet:text-floating-text-tablet">
                       Easy Purchasing
                     </h3>
-                    <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px] tablet:text-floating-text-tablet">
+                    <p class="text-[2vh] 3xl:text-[2.5vh] font-normal text-black/50
+                              xs:text-[1.8vh] tablet:text-floating-text-tablet">
                       Securely & seamlessly purchase reports
                     </p>
                   </div>
 
                   <div
-                    class="absolute z-10 left-[12px] top-[24px] h-[45px] w-[5px]
+                    class="absolute z-10 left-[12px] top-[24px] h-[8vh] w-[5px]
                            xs:h-full tablet:h-floating-step-tablet"
                     [ngClass]="{
                       'bg-[#16A085]': completedSteps[4],
@@ -595,7 +596,7 @@
                 </div>
 
                 <div
-                  class="relative flex items-start transition-opacity duration-500 h-[45px]
+                  class="relative flex items-start transition-opacity duration-500 h-[8vh]
                          xs:h-auto xs:mb-4 tablet:h-floating-step-tablet"
                   [ngClass]="{
                     'opacity-100': completedSteps[5],
@@ -607,23 +608,23 @@
                       *ngIf="completedSteps[5]"
                       src="../../assets/green_check_icon.svg"
                       alt="Check Icon"
-                      class="w-7 h-7 z-20 mt-1"
+                      class="w-[3vh] h-[3vh] z-20 mt-1"
                     />
                     <div
                       *ngIf="!completedSteps[5]"
-                      class="w-7 h-7 z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
+                      class="w-[3vh] h-[3vh] z-20 mt-1 flex items-center justify-center border-2 border-gray-300 rounded-full bg-white"
                     >
-                      <span class="text-[15px] font-normal text-black/50">6</span>
+                      <span class="text-[2vh] font-normal text-black/50">6</span>
                     </div>
                   </div>
 
                   <div class="ml-4 flex-1">
-                    <h3 class="text-[18px] 3xl:text-[20px] font-medium text-black/80
-                               xs:text-[16px] tablet:text-floating-text-tablet">
+                    <h3 class="text-[2.5vh] 3xl:text-[3vh] font-medium text-black/80
+                               xs:text-[2vh] tablet:text-floating-text-tablet">
                       Instant availability
                     </h3>
-                    <p class="text-[15px] 3xl:text-[16px] font-normal text-black/50
-                              xs:text-[14px] tablet:text-floating-text-tablet">
+                    <p class="text-[2vh] 3xl:text-[2.5vh] font-normal text-black/50
+                              xs:text-[1.8vh] tablet:text-floating-text-tablet">
                       Download your report
                     </p>
                   </div>
@@ -633,8 +634,8 @@
 
             <a
               routerLink="/signup"
-              class="cursor-pointer text-white mt-[12px] text-[20px] 3xl:text-[22px] h-[45px] 3xl:h-[50px] w-[240px] flex items-center justify-center font-medium font-roboto rounded-[8px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]
-                    xs:w-full xs:text-[18px] xs:h-[40px] xs:mt-6"
+              class="cursor-pointer text-white mt-[12px] text-[2.5vh] 3xl:text-[3vh] h-[6vh] 3xl:h-[7vh] w-[20vh] flex items-center justify-center font-medium font-roboto rounded-[8px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]
+                    xs:w-full xs:text-[2vh] xs:h-[5vh] xs:mt-6"
             >
               Sign Up
             </a>
