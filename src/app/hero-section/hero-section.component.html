@@ -21,10 +21,9 @@
       <!-- Desktop Menu -->
       <div class="flex items-center space-x-8 xs:hidden sm:hidden lg:flex">
         <div
-          class="group relative text-white/80 text-[16px] tablet:text-[18px] cursor-pointer font-medium"
+          class="group relative text-white/80 text-[16px] tablet:text-[18px] cursor-pointer font-medium flex justify-between items-center"
         >
           Datasets
-
           <div
             class="absolute hidden group-hover:flex top-[25px] right-0 flex-col justify-between overflow-hidden w-[300px] bg-white h-[280px] rounded-[3px]"
           >
@@ -62,7 +61,7 @@
           </div>
         </div>
         <div
-          class="group relative text-white/80 text-[16px] tablet:text-[18px] cursor-pointer font-medium"
+          class="group relative text-white/80 text-[16px] tablet:text-[18px] cursor-pointer font-medium flex justify-between items-center"
         >
           Packages
 
@@ -152,19 +151,73 @@
             </div>
 
             <!-- Menu Items -->
-            <div class="flex flex-col px-6 bg-[#144860]">
-              <div class="text-[18px] font-medium mb-4">Datasets</div>
-              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Pricing</a>
-              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Market Access</a>
-              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Treatment Cost</a>
-              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Dosing Assumptions</a>
-              <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Regulatory Approvals</a>
+            <div class="flex flex-col px-6 bg-[#144860] mt-2">
+              <div class="text-[22px] font-medium mb-4 flex justify-between items-center">
+                Datasets
+              </div>
+              <div class="flex flex-col gap-3">
+                <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+                  Pricing
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+                  Market Access
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+                  Treatment Cost
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+                  Dosing Assumptions
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+                  Regulatory Approvals
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+                <div class="py-3 text-[16px] text-white border-b border-gray-100/10 mt-2"></div>
 
-              <div class="text-[18px] font-medium mt-8 mb-4">Packages</div>
-              <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Basic Access</a>
-              <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Enhanced Access</a>
-              <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Custom Report</a>
-              <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Consultation</a>
+              <div class="text-[22px] font-medium mt-8 mb-4 flex justify-between items-center">
+                Packages
+              </div>
+              <div class="flex flex-col gap-3">
+                <a (click)="scrollToFragment('packages')" class="text-[16px] text-white flex justify-between items-center">
+                  Basic Access
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a (click)="scrollToFragment('packages')" class="text-[16px] text-white flex justify-between items-center">
+                  Enhanced Access
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a (click)="scrollToFragment('packages')" class="text-[16px] text-white flex justify-between items-center">
+                  Custom Report
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a (click)="scrollToFragment('packages')" class="text-[16px] text-white flex justify-between items-center">
+                  Consultation
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>

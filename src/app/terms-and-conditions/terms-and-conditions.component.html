@@ -2,18 +2,19 @@
   class="w-full flex flex-col bg-[#E76F51] items-center min-h-screen font-roboto"
 >
   <div
-    class="w-full fixed top-0 z-50 h-[70px] tablet:h-[80px] bg-[#E76F51] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.06)]"
+    class="w-full fixed top-0 z-[100] h-[60px] tablet:h-[80px] bg-[#144860] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.06)] px-[100px] xs:px-4 sm:px-8 lg:px-[100px]"
   >
-    <div
-      class="flex items-center justify-between max-w-[1440px] px-[100px] xs:px-4 sm:px-8 lg:px-[100px] mx-auto py-3 sm:py-4 lg:py-3 tablet:py-5"
-    >
-      <a routerLink="/" class="flex items-center cursor-pointer xs:hidden tablet:hidden">
-        <img
-          src="../../assets/ph_logo_dark.svg"
-          alt="pharmingo Logo"
-          class="h-[35px] tablet:h-[45px]"
-        />
-      </a>
+    <div class="flex items-center justify-between max-w-[1440px] mx-auto py-3 sm:py-4 lg:py-3 tablet:py-5">
+      <!-- Desktop View -->
+      <div class="xs:hidden sm:hidden lg:flex items-center">
+        <a routerLink="/" class="flex items-center cursor-pointer">
+          <img
+            src="../../assets/ph_logo_white.svg"
+            alt="Pharmingo Logo"
+            class="h-[35px] tablet:h-[45px]"
+          />
+        </a>
+      </div>
       <div class="hidden xs:flex sm:flex lg:hidden items-center justify-between w-full">
         <!-- Hamburger Menu and Logo -->
         <div class="flex items-center space-x-2">
@@ -23,7 +24,7 @@
             </svg>
           </button>
           <a routerLink="/" class="flex items-center cursor-pointer">
-            <img src="../../assets/ph_logo_dark.svg" alt="pharmingo Logo" class="h-[30px]" />
+            <img src="../../assets/ph_logo_white.svg" alt="pharmingo Logo" class="h-[30px]" />
           </a>
         </div>
         <!-- Login Button -->
@@ -211,20 +212,20 @@
   <!-- Mobile Menu Overlay -->
   <div 
     *ngIf="isMobileMenuOpen" 
-    class="fixed inset-0 bg-black/50 z-[150] xs:block sm:block lg:hidden"
+    class="fixed inset-0 bg-black/50 z-[150] hidden xs:block sm:block lg:hidden"
     (click)="toggleMobileMenu()"
   >
     <div 
-      class="fixed top-0 left-0 w-[280px] tablet:w-[350px] h-full bg-[#E76F51] shadow-lg transform transition-transform duration-300 ease-in-out"
+      class="fixed top-0 left-0 w-[280px] tablet:w-[350px] h-full bg-[#144860] transform transition-transform duration-300 ease-in-out"
       [ngClass]="isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'"
       (click)="$event.stopPropagation()"
     >
       <!-- Mobile Menu Content -->
       <div class="flex flex-col h-full text-white">
         <!-- Logo and Close Button -->
-        <div class="flex justify-between items-center p-4 pl-6 bg-[#E76F51]">
+        <div class="flex justify-between items-center p-4 pl-6 bg-[#144860]">
           <a routerLink="/" class="flex items-center cursor-pointer">
-            <img src="../../assets/ph_logo_dark.svg" alt="Pharmingo Logo" class="h-[30px]" />
+            <img src="../../assets/ph_logo_white.svg" alt="Pharmingo Logo" class="h-[30px]" />
           </a>
           <button class="text-white p-2" (click)="toggleMobileMenu()">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -234,19 +235,73 @@
         </div>
 
         <!-- Menu Items -->
-        <div class="flex flex-col px-6 bg-[#E76F51]">
-          <div class="text-[18px] font-medium mb-4">Datasets</div>
-          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Pricing</a>
-          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Market Access</a>
-          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Treatment Cost</a>
-          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Dosing Assumptions</a>
-          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Regulatory Approvals</a>
+        <div class="flex flex-col px-6 bg-[#144860] mt-2">
+          <div class="text-[22px] font-medium mb-4 flex justify-between items-center">
+            Datasets
+          </div>
+          <div class="flex flex-col gap-3">
+            <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+              Pricing
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+              Market Access
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+              Treatment Cost
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+              Dosing Assumptions
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a (click)="scrollToFragment('datasets')" class="text-[16px] text-white flex justify-between items-center">
+              Regulatory Approvals
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+            <div class="py-3 text-[16px] text-white border-b border-gray-100/10 mt-2"></div>
 
-          <div class="text-[18px] font-medium mt-8 mb-4">Packages</div>
-          <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Basic Access</a>
-          <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Enhanced Access</a>
-          <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Custom Report</a>
-          <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Consultation</a>
+          <div class="text-[22px] font-medium mt-8 mb-4 flex justify-between items-center">
+            Packages
+          </div>
+          <div class="flex flex-col gap-3">
+            <a (click)="scrollToFragment('packages')" class="text-[16px] text-white flex justify-between items-center">
+              Basic Access
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a (click)="scrollToFragment('packages')" class="text-[16px] text-white flex justify-between items-center">
+              Enhanced Access
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a (click)="scrollToFragment('packages')" class="text-[16px] text-white flex justify-between items-center">
+              Custom Report
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a (click)="scrollToFragment('packages')" class="text-[16px] text-white flex justify-between items-center">
+              Consultation
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
