@@ -11,6 +11,8 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './privacy-policy.component.css',
 })
 export class PrivacyPolicyComponent {
+  isMobileMenuOpen = false; // Add this line
+
   privacyPolicyDetails = [
     {
       title: '1. Information We Collect:',
@@ -98,5 +100,14 @@ export class PrivacyPolicyComponent {
         });
       }
     });
+  }
+
+  toggleMobileMenu() { // Add this method
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    if (this.isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 }

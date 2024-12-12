@@ -2,19 +2,39 @@
   class="w-full flex flex-col bg-[#264653] items-center min-h-screen font-roboto"
 >
   <div
-    class="w-full fixed top-0 z-50 h-[70px] bg-[#264653] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.06)]"
+    class="w-full fixed top-0 z-50 h-[70px] tablet:h-[80px] bg-[#264653] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.06)]"
   >
     <div
-      class="flex items-center justify-between max-w-[1440px] px-[100px] mx-auto py-3"
+      class="flex items-center justify-between max-w-[1440px] px-[100px] xs:px-4 sm:px-8 lg:px-[100px] mx-auto py-3 sm:py-4 lg:py-3 tablet:py-5"
     >
-      <div class="flex items-center">
+      <a routerLink="/" class="flex items-center cursor-pointer xs:hidden tablet:hidden">
         <img
           src="../../assets/ph_logo_white.svg"
           alt="pharmingo Logo"
-          class="h-[35px]"
+          class="h-[35px] tablet:h-[45px]"
         />
+      </a>
+      <div class="hidden xs:flex sm:flex lg:hidden items-center justify-between w-full">
+        <!-- Hamburger Menu and Logo -->
+        <div class="flex items-center space-x-2">
+          <button class="text-white p-2 z-[110]" (click)="toggleMobileMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 tablet:h-8 tablet:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <a routerLink="/" class="flex items-center cursor-pointer">
+            <img src="../../assets/ph_logo_white.svg" alt="pharmingo Logo" class="h-[30px]" />
+          </a>
+        </div>
+        <!-- Login Button -->
+        <a
+          routerLink="/login"
+          class="cursor-pointer text-white text-[14px] tablet:text-[18px] h-[32px] w-[80px] tablet:h-[38px] tablet:[90px] flex items-center justify-center font-medium font-roboto rounded-[6px] bg-gradient-to-tr from-[#E76F51] to-[#F4A261]"
+        >
+          Login
+        </a>
       </div>
-      <div class="flex items-center space-x-8">
+      <div class="flex items-center space-x-8 xs:hidden sm:hidden lg:flex">
         <div
           class="group relative text-white/80 text-[16px] cursor-pointer font-medium"
         >
@@ -101,12 +121,12 @@
     </div>
   </div>
   <div
-    class="flex items-center justify-between mt-[70px] w-full bg-[#264653] h-[350px]"
+    class="flex items-center justify-between mt-[70px] tablet:mt-[80px] w-full bg-[#264653] h-[350px]"
   >
     <div
-      class="flex flex-col space-y-[20px] max-w-[1440px] mx-auto px-[100px] 3xl:px-[50px] w-full"
+      class="flex flex-col space-y-[20px] max-w-[1440px] mx-auto px-[100px] xs:px-4 sm:px-8 lg:px-[100px] w-full"
     >
-      <div class="text-white font-bold text-[72px] leading-[58px]">
+      <div class="text-white font-bold text-[72px] xs:text-[36px] tablet:text-[48px] leading-[58px]">
         Privacy Policy
       </div>
     </div>
@@ -115,13 +135,13 @@
   <div class="flex flex-col bg-white w-full">
     <section id="privacy-content" class="bg-white relative overflow-hidden">
       <div
-        class="max-w-[1440px] mx-auto px-[100px] pt-[60px] 3xl:px-[50px] w-full pb-20"
+        class="max-w-[1440px] mx-auto px-[100px] xs:px-4 sm:px-8 lg:px-[100px] pt-[60px] w-full pb-20"
       >
         <div class="flex flex-col">
-          <h2 class="text-[40px] leading-[58px] font-bold text-[#000000] mb-5">
+          <h2 class="text-[40px] xs:text-[32px] leading-[58px] font-bold text-[#000000] mb-5">
             Introduction
           </h2>
-          <div class="text-[16px] md:text-[20px] text-[#020617]/80">
+          <div class="text-[16px] tablet:text-[18px] md:text-[20px] text-[#020617]/80">
             pharmingo, a Global Pricing Innovations Ltd brand, is committed to
             protecting your privacy. This Privacy Policy explains how we
             collect, use, and protect your personal information when you access
@@ -135,14 +155,14 @@
         >
           <div class="flex flex-col space-y-[8px]">
             <div
-              class="text-[30px] leading-[42px] font-bold text-[#000000] mb-5"
+              class="text-[30px] xs:text-[24px] leading-[42px] font-bold text-[#000000] mb-5"
             >
               {{ section.title }}
             </div>
             <div *ngIf="section.items" class="max-w-[1280px]">
               <ul
                 *ngFor="let item of section.items; let idx = index"
-                class="list-disc pl-[60px] space-y-2 text-[16px] md:text-[20px] text-[#020617]/80"
+                class="list-disc pl-[60px] xs:pl-[20px] space-y-2 text-[16px] md:text-[20px] text-[#020617]/80"
               >
                 <li class="text-[#020617]/60">
                   {{ item }}
@@ -151,7 +171,7 @@
             </div>
             <div *ngIf="section.description" class="max-w-[1280px]">
               <div
-                class="pl-[40px] text-[16px] md:text-[20px] text-[#020617]/60"
+                class="pl-[40px] xs:pl-[20px] text-[16px] md:text-[20px] text-[#020617]/60"
               >
                 {{ section.description }}
                 <span *ngIf="section.title ==='4. Your Rights and Choices'"><a
@@ -166,14 +186,14 @@
         <div class="w-full mt-[50px]">
           <div class="flex flex-col space-y-[8px]">
             <div
-              class="text-[30px] leading-[42px] font-bold text-[#000000] mb-5"
+              class="text-[30px] xs:text-[24px] leading-[42px] font-bold text-[#000000] mb-5"
             >
               11. Contact Us
             </div>
 
             <div class="max-w-[1280px]">
               <div
-                class="pl-[40px] text-[16px] md:text-[20px] text-[#020617]/60"
+                class="pl-[40px] xs:pl-[20px] text-[16px] md:text-[20px] text-[#020617]/60"
               >
                 If you have any questions or concerns about this Privacy Policy
                 or how we handle your data, please contact us at
@@ -190,7 +210,51 @@
     </section>
   </div>
 
-  <div class="flex flex-col w-full">
+  <div class="flex flex-col w-full xs:-mt-[380rem] tablet:-mt-[415rem]">
     <app-footer></app-footer>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div 
+    *ngIf="isMobileMenuOpen" 
+    class="fixed inset-0 bg-black/50 z-[150] hidden xs:block sm:block lg:hidden"
+    (click)="toggleMobileMenu()"
+  >
+    <div 
+      class="fixed top-0 left-0 w-[280px] tablet:w-[350px] h-full bg-[#264653] shadow-lg transform transition-transform duration-300 ease-in-out"
+      [ngClass]="isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'"
+      (click)="$event.stopPropagation()"
+    >
+      <!-- Mobile Menu Content -->
+      <div class="flex flex-col h-full text-white">
+        <!-- Logo and Close Button -->
+        <div class="flex justify-between items-center p-4 pl-6 bg-[#264653]">
+          <a routerLink="/" class="flex items-center cursor-pointer">
+            <img src="../../assets/ph_logo_white.svg" alt="Pharmingo Logo" class="h-[30px]" />
+          </a>
+          <button class="text-white p-2" (click)="toggleMobileMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="flex flex-col px-6 bg-[#264653]">
+          <div class="text-[18px] font-medium mb-4">Datasets</div>
+          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Pricing</a>
+          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Market Access</a>
+          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Treatment Cost</a>
+          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Dosing Assumptions</a>
+          <a (click)="scrollToFragment('datasets')" class="py-3 text-[16px] text-white border-b border-gray-100">Regulatory Approvals</a>
+
+          <div class="text-[18px] font-medium mt-8 mb-4">Packages</div>
+          <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Basic Access</a>
+          <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Enhanced Access</a>
+          <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Custom Report</a>
+          <a (click)="scrollToFragment('packages')" class="py-3 text-[16px] text-white border-b border-gray-100">Consultation</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

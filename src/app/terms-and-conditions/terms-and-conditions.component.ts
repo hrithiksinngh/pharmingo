@@ -11,6 +11,8 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './terms-and-conditions.component.css',
 })
 export class TermsAndConditionsComponent {
+  isMobileMenuOpen = false; // Add this line
+
   termsAndConditionsData = [
   
     {
@@ -104,6 +106,8 @@ export class TermsAndConditionsComponent {
   constructor(private router: Router) {}
 
   scrollToFragment(fragment: string) {
+    this.isMobileMenuOpen = false; // Close menu when clicking a link
+    document.body.style.overflow = 'auto';
     this.router.navigate(['/'], { fragment }).then(() => {
       const element = document.getElementById(fragment);
       if (element && fragment === "datasets") {
@@ -119,5 +123,15 @@ export class TermsAndConditionsComponent {
         });
       }
     });
+  }
+
+  toggleMobileMenu() { // Add this method
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    // Prevent body scrolling when menu is open
+    if (this.isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 }
