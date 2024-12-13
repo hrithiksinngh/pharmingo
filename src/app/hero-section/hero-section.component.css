@@ -5,6 +5,16 @@
     overflow: hidden;
   }
   
+  @media (max-width: 639px) {
+    .carousel {
+      height: 700px;
+    }
+    
+    .carousel-slide {
+      padding: 0 16px;
+    }
+  }
+  
   .carousel-slide {
     display: none;
     position: absolute;
@@ -48,6 +58,21 @@
   
   .animate-slideInFromRight {
     animation: slideInFromRight 1s ease-in-out forwards;
+  }
+  
+  @media (max-width: 639px) {
+    .mobile-menu-open {
+      overflow: hidden;
+    }
+
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
   }
   
 

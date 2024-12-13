@@ -19,6 +19,7 @@ export class HeroSectionComponent {
 
   currentSlide = 0; // Tracks the current visible slide
   nextSlide = -1; // Tracks the next slide to show
+  isMobileMenuOpen = false;
 
   ngOnInit(): void {
     this.startAutoplay();
@@ -38,11 +39,23 @@ export class HeroSectionComponent {
   }
 
   scrollToFragment(fragment: string) {
+    this.isMobileMenuOpen = false; // Close menu when clicking a link
+    document.body.style.overflow = 'auto';
     this.router.navigate([], { fragment }).then(() => {
       const element = document.getElementById(fragment);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     });
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    // Prevent body scrolling when menu is open
+    if (this.isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 }
